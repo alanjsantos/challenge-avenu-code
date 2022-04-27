@@ -1,35 +1,28 @@
-package com.alanjsantos.challenge.models;
+package com.alanjsantos.challenge.models.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wather {
+public class WatherDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "date_recorded", nullable = false, updatable = false)
+    @JsonProperty("date_recorded")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dateRecorded;
 
     private Float lat;
     private Float lon;
     private String city;
     private String state;
-
     private Double temperature;
-
-    @PrePersist
-    public void prePersist() {
-        dateRecorded = LocalDateTime.now();
-    }
 
 }
