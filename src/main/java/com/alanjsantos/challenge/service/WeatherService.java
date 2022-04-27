@@ -1,7 +1,7 @@
 package com.alanjsantos.challenge.service;
 
-import com.alanjsantos.challenge.models.Wather;
-import com.alanjsantos.challenge.repository.WatherRepository;
+import com.alanjsantos.challenge.models.Weather;
+import com.alanjsantos.challenge.repository.WeatherRepository;
 import com.alanjsantos.challenge.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,19 +13,19 @@ import java.util.Optional;
 public class WeatherService {
 
     @Autowired
-    private WatherRepository repository;
+    private WeatherRepository repository;
 
 
-    public Wather save (Wather wather) {
-        return repository.save(wather);
+    public Weather save (Weather weather) {
+        return repository.save(weather);
     }
 
-    public List<Wather> getAll () {
+    public List<Weather> getAll () {
         return repository.findAll();
     }
 
-    public Wather getId (Integer id) {
-        Optional<Wather> obj = repository.findById(id);
+    public Weather getId (Integer id) {
+        Optional<Weather> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("ID " + id +  " This ID not aready exists in the database"));
     }
 

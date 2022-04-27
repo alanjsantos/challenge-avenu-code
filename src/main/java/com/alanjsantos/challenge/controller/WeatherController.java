@@ -1,7 +1,7 @@
 package com.alanjsantos.challenge.controller;
 
-import com.alanjsantos.challenge.models.Wather;
-import com.alanjsantos.challenge.models.dto.WatherDTO;
+import com.alanjsantos.challenge.models.Weather;
+import com.alanjsantos.challenge.models.dto.WeatherDTO;
 import com.alanjsantos.challenge.service.WeatherService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("wather")
+@RequestMapping("weather")
 public class WeatherController {
 
     @Autowired
@@ -23,31 +22,28 @@ public class WeatherController {
     private ModelMapper modelMapper;
 
     @PostMapping
-    public ResponseEntity<WatherDTO> save (@RequestBody WatherDTO dto) {
-        Wather wather  =
-                service.save(modelMapper.map(dto, Wather.class));
-        return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(wather, WatherDTO.class));
+    public ResponseEntity<Weather> save (@RequestBody Weather weather) {
+         weather =
+                service.save(weather);
+        return ResponseEntity.status(HttpStatus.CREATED).body(weather);
     }
 
     @GetMapping
-    public ResponseEntity<List<WatherDTO>> getAll () {
-        List<WatherDTO> body =
-                service.getAll().stream()
-                        .map(entity -> modelMapper.map(entity, WatherDTO.class))
-                        .collect(Collectors.toList());
+    public ResponseEntity<List<Weather>> getAll () {
+        List<Weather> body =
+                service.getAll();
         return ResponseEntity.ok().body(body);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<WatherDTO> getId(@PathVariable Integer id) {
+    public ResponseEntity<Weather> getId(@PathVariable Integer id) {
         var wather = service.getId(id);
-        var dto = modelMapper.map(wather, WatherDTO.class);
 
-        return ResponseEntity.ok().body(dto);
+        return ResponseEntity.ok().body(wather);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<WatherDTO> delete (@PathVariable Integer id) {
+    public ResponseEntity<Weather> delete (@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

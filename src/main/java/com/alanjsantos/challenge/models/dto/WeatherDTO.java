@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WatherDTO {
+public class WeatherDTO {
 
     private Integer id;
 

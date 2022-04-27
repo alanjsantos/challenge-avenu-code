@@ -1,23 +1,30 @@
 package com.alanjsantos.challenge.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wather {
+@Builder
+public class Weather {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "date_recorded", nullable = false, updatable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonProperty("date_recorded")
     private LocalDateTime dateRecorded;
 
     private Float lat;
@@ -26,6 +33,9 @@ public class Wather {
     private String state;
 
     private Double temperature;
+
+    public Weather(LocalDateTime date, String nashville, String tennessee, float v, float v1, double v2) {
+    }
 
     @PrePersist
     public void prePersist() {
