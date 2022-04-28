@@ -15,12 +15,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Weather {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "date_recorded", nullable = false, updatable = false)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
@@ -31,11 +30,8 @@ public class Weather {
     private Float lon;
     private String city;
     private String state;
-
     private Double temperature;
 
-    public Weather(LocalDateTime date, String nashville, String tennessee, float v, float v1, double v2) {
-    }
 
     @PrePersist
     public void prePersist() {

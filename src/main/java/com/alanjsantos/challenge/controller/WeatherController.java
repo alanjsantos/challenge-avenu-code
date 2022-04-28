@@ -36,14 +36,14 @@ public class WeatherController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Weather> getId(@PathVariable Integer id) {
-        var wather = service.getId(id);
+    public ResponseEntity<Weather> getId(@PathVariable Long id) {
+        var wather = service.findId(id);
 
         return ResponseEntity.ok().body(wather);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Weather> delete (@PathVariable Integer id) {
+    public ResponseEntity<Weather> delete (@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

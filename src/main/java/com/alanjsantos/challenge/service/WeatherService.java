@@ -24,13 +24,15 @@ public class WeatherService {
         return repository.findAll();
     }
 
-    public Weather getId (Integer id) {
-        Optional<Weather> obj = repository.findById(id);
+    public Weather findId (Long id) {
+        Optional<Weather> obj = repository.findById(id.intValue());
         return obj.orElseThrow(() -> new ObjectNotFoundException("ID " + id +  " This ID not aready exists in the database"));
     }
 
-    public void delete(Integer id) {
-        getId(id);
-        repository.deleteById(id);
+    public Weather delete(Long id) {
+        var weather =  findId(id);
+        repository.deleteById(id.intValue());
+
+        return weather;
     }
 }
