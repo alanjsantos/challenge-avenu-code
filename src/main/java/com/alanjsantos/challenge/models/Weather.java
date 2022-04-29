@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -22,9 +23,9 @@ public class Weather {
     private Long id;
 
     @Column(name = "date_recorded", nullable = false, updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @JsonProperty("date_recorded")
-    private LocalDateTime dateRecorded;
+    private LocalDate dateRecorded;
 
     private Float lat;
     private Float lon;
@@ -35,7 +36,7 @@ public class Weather {
 
     @PrePersist
     public void prePersist() {
-        dateRecorded = LocalDateTime.now();
+        dateRecorded = LocalDate.now();
     }
 
 }

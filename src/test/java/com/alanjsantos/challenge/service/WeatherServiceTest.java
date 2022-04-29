@@ -12,7 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -41,7 +41,7 @@ public class WeatherServiceTest {
         weather.setState("TESTE");
         weather.setLat(10F);
         weather.setLon(10F);
-        weather.setDateRecorded(LocalDateTime.now());
+        weather.setDateRecorded(LocalDate.now());
         weather.setTemperature(120.0);
 
         when(repository.save(any())).thenReturn(weather);
@@ -58,7 +58,7 @@ public class WeatherServiceTest {
         weather.setState("TESTE");
         weather.setLat(10F);
         weather.setLon(10F);
-        weather.setDateRecorded(LocalDateTime.now());
+        weather.setDateRecorded(LocalDate.now());
         weather.setTemperature(120.0);
         when(repository.findById(id.intValue())).thenReturn(Optional.of(weather));
 
@@ -76,7 +76,7 @@ public class WeatherServiceTest {
         weather.setState("TESTE");
         weather.setLat(10F);
         weather.setLon(10F);
-        weather.setDateRecorded(LocalDateTime.now());
+        weather.setDateRecorded(LocalDate.now());
         weather.setTemperature(120.0);
         Throwable ex =
                 Assertions.catchThrowable(() -> {
@@ -95,7 +95,7 @@ public class WeatherServiceTest {
         weather.setState("TESTE");
         weather.setLat(10F);
         weather.setLon(10F);
-        weather.setDateRecorded(LocalDateTime.now());
+        weather.setDateRecorded(LocalDate.now());
         weather.setTemperature(120.0);
         when(repository.findById(weather.getId().intValue())).thenReturn(Optional.of(weather));
         doNothing().when(repository).deleteById(id.intValue());

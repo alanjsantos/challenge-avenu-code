@@ -1,7 +1,6 @@
 package com.alanjsantos.challenge.controller;
 
 import com.alanjsantos.challenge.models.Weather;
-import com.alanjsantos.challenge.models.dto.WeatherDTO;
 import com.alanjsantos.challenge.service.WeatherService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
