@@ -9,7 +9,7 @@ endpoints:
 POST: http://localhost:9091/weather
 <br /> GET: http://localhost:9091/weather (find all)
 <br /> GET: http://localhost:9091/weather/(find Id)
-DELETE: http://localhost:9091/weather/(the parameter)
+<br /> DELETE: http://localhost:9091/weather/(the parameter)
 
 Stacks:
 Java 11
