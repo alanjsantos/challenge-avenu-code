@@ -7,7 +7,7 @@ running the service: docker-compose up -d
 
 endpoints:
 POST: http://localhost:9091/weather
-GET: http://localhost:9091/weather (find all)
+<br /> GET: http://localhost:9091/weather (find all)
 GET: http://localhost:9091/weather/(find Id)
 DELETE: http://localhost:9091/weather/(the parameter)
 
