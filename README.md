@@ -11,7 +11,7 @@ endpoints:
 <br /> GET: http://localhost:9091/weather/(find Id)
 <br /> DELETE: http://localhost:9091/weather/(the parameter)
 
-Stacks:
-Java 11
-H2
-Docker
+<br /> Stacks:
+<br /> Java 11
+<br /> H2
+<br /> Docker
