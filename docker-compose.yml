@@ -1,0 +1,9 @@
+version: "3"
+services:
+  api:
+    build: './avenue-code-api'
+    container_name: avenue-code-api
+    environment:
+      - PORT=9091
+    ports:
+      - 9091:9091
