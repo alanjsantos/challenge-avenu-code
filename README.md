@@ -1,4 +1,4 @@
-# challenge-avenu-code
+# challenge-avenue-code
 Requirements:
 1. have docker installed
 2. have docker-compose installed
