@@ -1,0 +1,15 @@
+# challenge-avenu-code
+Requirements:
+1. have docker installed
+2. have docker-compose installed
+
+endpoints:
+POST: http://localhost:9091/weather
+GET: http://localhost:9091/weather (find all)
+GET: http://localhost:9091/weather/(find Id)
+DELETE: http://localhost:9091/weather/(the parameter)
+
+Stacks:
+Java 11
+H2
+Docker
