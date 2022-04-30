@@ -3,6 +3,8 @@ Requirements:
 1. have docker installed
 2. have docker-compose installed
 
+running the service: docker-compose up -d
+
 endpoints:
 POST: http://localhost:9091/weather
 GET: http://localhost:9091/weather (find all)
